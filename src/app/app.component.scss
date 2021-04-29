@@ -1,0 +1,64 @@
+$input-height: 40px;
+$select-height: 42px;
+$border-size: 1px;
+$border-style: solid;
+$border-color: #313131;
+$border-radius: 5px;
+$widget-background-color: #926eff;
+
+/*****
+
+  I intentionally preferred not to use any CSS library or module to showcase my raw CSS/SCSS knowledge
+
+  ******/
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+
+  .widget {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: $widget-background-color;
+    color: white;
+    border: $border-size $border-style $border-color;
+  }
+
+  .legend {
+    margin-top: 15px;
+  }
+}
+
+.form-control {
+  border: $border-size $border-style $border-color;
+  border-radius: $border-radius;
+  display: flex;
+  margin-bottom: 5px;
+
+  select {
+    height: $select-height;
+    width: 60px;
+    border: none;
+    border-radius: $border-radius 0 0 $border-radius;
+
+    option {
+      text-align: center;
+    }
+  }
+
+  input[type="text"] {
+    height: $input-height;
+    width: 200px;
+    border-style: none;
+    border-radius: 0 $border-radius $border-radius 0;
+    display: flex;
+    flex-grow: 1;
+  }
+}

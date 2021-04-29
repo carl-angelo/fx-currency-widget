@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "FX Currency Widget",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

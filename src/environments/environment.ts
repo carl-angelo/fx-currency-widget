@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    endpoint: 'http://api.exchangeratesapi.io/v1/',
+    key: 'aaa94bbb473b53413c90ab61a985562c',
+  }
 };
 
 /*
