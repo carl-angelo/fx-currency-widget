@@ -53,6 +53,16 @@ export class AppComponent implements OnInit{
     this.from.amount = this.compute(this.to, this.from);
   }
 
+  keyPressNumbersDecimal(event: KeyboardEvent): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode != 46 && charCode > 31
+      && (charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
   private compute(fromValue: any, toValue: any): number {
     const multiplier = this.currencies.find(f => f.currency === toValue.currency);
     const base = this.currencies.find(f => f.currency === this.baseCurrency);
