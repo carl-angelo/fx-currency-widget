@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.
 
+## Clone repository using HTTP or download it
+
 ## Open folder location to terminal
 Make sure you are inside the `fx-currency-widget` folder
 
