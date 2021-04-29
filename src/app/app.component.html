@@ -2,16 +2,23 @@
   <div class="widget">
     <h1> Foreign Exchange Widget </h1>
     <div class="form-control">
-      <select [(ngModel)]="from.currency" (ngModelChange)="updateFromCurrency()">
+      <select id="from-currency-select" [(ngModel)]="from.currency" (ngModelChange)="updateFromCurrency()">
         <option *ngFor="let symbol of symbols" [value]="symbol.key">{{ symbol.key }}</option>
       </select>
-      <input type="text" [(ngModel)]="from.amount" (keypress)="keyPressNumbersDecimal($event)" (ngModelChange)="updateFromCurrency()"/>
+      <input type="text" id="from-currency-input"
+             [(ngModel)]="from.amount"
+             (keypress)="keyPressNumbersDecimal($event)"
+             (ngModelChange)="updateFromCurrency()"/>
     </div>
     <div class="form-control">
-      <select [(ngModel)]="to.currency" (ngModelChange)="updateToCurrency()">
+      <select id="to-currency-select" [(ngModel)]="to.currency" (ngModelChange)="updateToCurrency()">
         <option *ngFor="let symbol of symbols" [value]="symbol.key">{{ symbol.key }}</option>
       </select>
-      <input type="text" [(ngModel)]="to.amount" (keypress)="keyPressNumbersDecimal($event)" (ngModelChange)="updateToCurrency()"/>
+      <input type="text"
+             id="to-currency-input"
+             [(ngModel)]="to.amount"
+             (keypress)="keyPressNumbersDecimal($event)"
+             (ngModelChange)="updateToCurrency()"/>
     </div>
     <div class="legend">
       1 {{ from.currency | currencyDefinition: symbols }} = {{ referenceValue?.toFixed(2) }} {{ to.currency | currencyDefinition: symbols }}

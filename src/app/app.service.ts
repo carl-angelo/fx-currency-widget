@@ -9,10 +9,13 @@ import {map, take} from "rxjs/operators";
 })
 export class AppService {
 
+  symbolAPI = `${environment.api.endpoint}/symbols?access_key=${environment.api.key}`;
+  currencyAPI = `${environment.api.endpoint}/latest?access_key=${environment.api.key}`;
+
   constructor(private http: HttpClient) { }
 
   getSymbols(): Observable<any> {
-    return this.http.get(`${environment.api.endpoint}/symbols?access_key=${environment.api.key}`)
+    return this.http.get(this.symbolAPI)
       .pipe(
         take(1),
         map((data: any) => data.symbols)
@@ -20,7 +23,7 @@ export class AppService {
   }
 
   getCurrency(): Observable<any> {
-    return this.http.get(`${environment.api.endpoint}/latest?access_key=${environment.api.key}`)
+    return this.http.get(this.currencyAPI)
       .pipe(
         take(1),
         map((data: any) => data.rates)

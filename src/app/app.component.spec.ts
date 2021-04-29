@@ -1,11 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {CurrencyDefinitionPipe} from "./pipe/currency-definition.pipe";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        CurrencyDefinitionPipe
+      ],
+      imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
       ],
     }).compileComponents();
   }));
@@ -16,16 +26,41 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'client'`, () => {
+  it(`should have - from currency selection'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('client');
+    const app = fixture.debugElement.nativeElement.querySelector('#from-currency-select')
+    expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it(`should have - from currency input'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('client app is running!');
+    const app = fixture.debugElement.nativeElement.querySelector('#from-currency-input')
+    expect(app).toBeTruthy();
   });
+
+  it(`should have - to currency selection'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.nativeElement.querySelector('#to-currency-select')
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have - to currency input'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.nativeElement.querySelector('#to-currency-input')
+    expect(app).toBeTruthy();
+  });
+
+  // it('should load from currency options', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const optionList = fixture.debugElement.nativeElement.querySelector('#from-currency-select > option')
+  //   expect(optionList).toBeGreaterThan(1);
+  // });
+  //
+  // it('should load to currency options', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const optionList = fixture.debugElement.nativeElement.querySelector('#to-currency-select > option')
+  //   expect(optionList).toBeGreaterThan(1);
+  // });
 });
